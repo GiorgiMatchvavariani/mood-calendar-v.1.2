@@ -17,6 +17,26 @@ let currentUser = null;
 window.addEventListener('load', () => {
   if (!window.auth || !window.db) {
     console.error("Firebase not loaded – check your <script type='module'> in index.html");
+    // Wait for Firebase to be ready
+window.addEventListener('load', () => {
+  if (!window.auth || !window.db || !window.doc || !window.getDoc || !window.setDoc) {
+    console.error("Firebase modules not loaded yet. Check index.html <script type='module'> block.");
+    console.log("window.db exists?", !!window.db);
+    console.log("window.auth exists?", !!window.auth);
+    return;
+  }
+
+  // Now safe to use auth/db
+  window.auth.onAuthStateChanged((user) => {
+    if (user) {
+      currentUser = user;
+      console.log("User signed in:", user.uid);
+      loadMoodsFromFirestore();
+    } else {
+      console.log("Waiting for anonymous sign-in...");
+    }
+  });
+});
     return;
   }
 
