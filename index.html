@@ -11,6 +11,30 @@
   <link rel="apple-touch-icon" href="icon.png"> <!-- iOS icon (create a 192x192 PNG) -->
   <link rel="stylesheet" href="styles.css">
 </head>
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyDA2UMyho0xGtFq1_xn8AcBN9MRe0WKsOE",
+    authDomain: "moodcalendarapp-f9599.firebaseapp.com",
+    projectId: "moodcalendarapp-f9599",
+    storageBucket: "moodcalendarapp-f9599.firebasestorage.app",
+    messagingSenderId: "981480185523",
+    appId: "1:981480185523:web:45247672cd6d73707e5ac6",
+    measurementId: "G-36SP8ZZ7RH"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
 <body>
   <div class="container">
     <header>
