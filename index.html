@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes"> <!-- Full-screen on iOS -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#ffffff"> <!-- Android status bar -->
+  <title>Mood Calendar</title>
+  <link rel="manifest" href="manifest.json"> <!-- PWA manifest -->
+  <link rel="apple-touch-icon" href="icon.png"> <!-- iOS icon (create a 192x192 PNG) -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <button id="prevMonth">&lt;</button>
+      <h1 id="monthYear"></h1>
+      <button id="nextMonth">&gt;</button>
+      <button id="today">Today</button>
+    </header>
+    <div class="weekdays">
+      <div>Sun</div><div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div><div>Fri</div><div>Sat</div>
+    </div>
+    <div id="calendar" class="calendar"></div>
+    <div id="moodModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Select Mood for <span id="selectedDate"></span></h2>
+        <div class="moods">
+          <button data-mood="happy">😊 Happy</button>
+          <button data-mood="sad">😔 Sad</button>
+          <button data-mood="energetic">⚡ Energetic</button>
+          <button data-mood="calm">🧘 Calm</button>
+          <!-- Add more moods as needed -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    // PWA service worker (for offline/install)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').then(() => console.log('SW registered'));
+    }
+  </script>
+</body>
+</html>
